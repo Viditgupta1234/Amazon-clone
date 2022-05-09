@@ -6,9 +6,13 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../amazon-frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Debjit",
+  "author": "Vidit",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

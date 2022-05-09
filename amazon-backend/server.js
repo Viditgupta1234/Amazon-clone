@@ -13,11 +13,12 @@ const app = express()
 const port = process.env.PORT || 5000;
 const connection_url = "<Connection Link>";
 
-mongoose.connect(connection_url,{
-    useCreateIndex: true,
+const conn = mongoose.connect('mongodb+srv://vidit:vidit@viditcluster.keuto.mongodb.net/pet-tracker?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+.then((res)=>console.log('connected to db'))
+.catch((err)=> console.log(err))
 
 
 
@@ -33,7 +34,7 @@ app.get('/api/config/paypal', (req,res)=>{
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 })
 
-app.get('/',(req,res)=>res.status(200).send('Hello Debjit here. It is Amazon clone project.'))
+app.get('/',(req,res)=>res.status(200).send('Hello Vidit here. It is Pet buying Platform.'))
 
 
 // Listening to  server
